@@ -15,8 +15,8 @@
 // User-specified version info of this build to display in [Pronterface, etc] terminal window during
 // startup. Implementation of an idea by Prof Braino to inform user that any changes made to this
 // build by the user have been successfully uploaded into firmware.
-#define STRING_VERSION_CONFIG_H __DATE__ " 16/06/2015 " __TIME__ // build date and time
-#define STRING_CONFIG_H_AUTHOR "(Equipo Tumaker for Voladora V3)" // Who made the changes.
+#define STRING_VERSION_CONFIG_H __DATE__ " 08/09/2015 " __TIME__ // build date and time
+#define STRING_CONFIG_H_AUTHOR "(Equipo Tumaker for Voladora V2)" // Who made the changes.
 
 // SERIAL_PORT selects which serial port should be used for communication with the host.
 // This allows the connection of wireless adapters (for instance) to non-default port pins.
@@ -85,7 +85,7 @@
 // #define MACHINE_UUID "00000000-0000-0000-0000-000000000000"
 
 // This defines the number of extruders
-#define EXTRUDERS 2
+#define EXTRUDERS 1
 
 //// The following define selects which power supply you have. Please choose the one that matches your setup
 // 1 = ATX
@@ -135,7 +135,7 @@
 // 70 is 500C thermistor for Pico hot end
 
 #define TEMP_SENSOR_0 -1
-#define TEMP_SENSOR_1 -1
+#define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_BED 1
 
@@ -189,9 +189,9 @@
 
 // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
 // Voladora
-    #define  DEFAULT_Kp 15.70
-    #define  DEFAULT_Ki 1.11
-    #define  DEFAULT_Kd 55.54
+    #define  DEFAULT_Kp 25.37
+    #define  DEFAULT_Ki 2.50
+    #define  DEFAULT_Kd 64.43
 
 // Ultimaker
 //    #define  DEFAULT_Kp 29.26
@@ -354,7 +354,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
 #define INVERT_X_DIR true    // for Mendel set to false, for Orca set to true
 #define INVERT_Y_DIR false//true    // for Mendel set to true, for Orca set to false cambio
 #define INVERT_Z_DIR true//false     // for Mendel set to false, for Orca set to true
-#define INVERT_E0_DIR true// for direct drive extruder v9 set to true, for geared extruder set to false
+#define INVERT_E0_DIR true   // for direct drive extruder v9 set to true, for geared extruder set to false
 #define INVERT_E1_DIR false    // for direct drive extruder v9 set to true, for geared extruder set to false
 #define INVERT_E2_DIR false   // for direct drive extruder v9 set to true, for geared extruder set to false
 
@@ -406,7 +406,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
     // set the rectangle in which to probe
     #define LEFT_PROBE_BED_POSITION 0
     #define RIGHT_PROBE_BED_POSITION 190
-    #define BACK_PROBE_BED_POSITION 210
+    #define BACK_PROBE_BED_POSITION 200
     #define FRONT_PROBE_BED_POSITION 15
 
      // set the number of grid points per dimension
@@ -486,23 +486,23 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
 
 // default settings
 
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {100,100,800,152}//{78.7402,78.7402,4300,760*1.1}  // default steps per unit for Ultimaker estaba 804
-#define DEFAULT_MAX_FEEDRATE          {350, 350, 40, 80, 80}    // (mm/sec)
-#define DEFAULT_MAX_ACCELERATION      {700,700,100,10000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for Skeinforge 40+, for older versions raise them a lot.
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {100.38,100.47,800,152}//{78.7402,78.7402,4300,760*1.1}  // default steps per unit for Ultimaker estaba 804
+#define DEFAULT_MAX_FEEDRATE          {350, 350, 55, 80, 80}    // (mm/sec)
+#define DEFAULT_MAX_ACCELERATION      {12550,12550,1000,15000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for Skeinforge 40+, for older versions raise them a lot.
 
-#define DEFAULT_ACCELERATION          1000 //3000    // X, Y, Z and E max acceleration in mm/s^2 for printing moves
-#define DEFAULT_RETRACT_ACCELERATION  5000 //100000  // X, Y, Z and E max acceleration in mm/s^2 for retracts
+#define DEFAULT_ACCELERATION          600 //3000    // X, Y, Z and E max acceleration in mm/s^2 for printing moves
+#define DEFAULT_RETRACT_ACCELERATION  1000 //100000  // X, Y, Z and E max acceleration in mm/s^2 for retracts
 
 // Offset of the extruders (uncomment if using more than one and relying on firmware to position when changing).
 // The offset has to be X=0, Y=0 for the extruder 0 hotend (default extruder).
 // For the other hotends it is their distance from the extruder 0 hotend.
 #define EXTRUDER_OFFSET_X {0.0, -26.00} // (in mm) for each extruder, offset of the hotend on the X axis
-#define EXTRUDER_OFFSET_Y {0.0, 0.15}  // (in mm) for each extruder, offset of the hotend on the Y axis
+#define EXTRUDER_OFFSET_Y {0.0, 1.00}  // (in mm) for each extruder, offset of the hotend on the Y axis
 
 // The speed change that does not require acceleration (i.e. the software might assume it can be done instantaneously)
 #define DEFAULT_XYJERK                10.0    // (mm/sec)
 #define DEFAULT_ZJERK                 0.4     // (mm/sec)
-#define DEFAULT_EJERK                 20.0   //5 // (mm/sec)
+#define DEFAULT_EJERK                 10.0   //5 // (mm/sec)
 
 //===========================================================================
 //=============================Additional Features===========================

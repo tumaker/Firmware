@@ -375,6 +375,7 @@ void parar_contador()
     tumin=tumin_temp%60;
     tumin = tumin + minutos_prot;
     tusec = tusec + segundos_prot;
+    tuhora = tuhora + horas_prot;
     while(tusec >= 60)
     {
       tumin++;
@@ -1995,7 +1996,7 @@ void process_commands()
         break;}
         
 #ifdef TUMAKERPRINTER 
-      if ((current_temperature[0]>=40)||(current_temperature[1]>=40))
+      if (current_temperature[0]>=40)
       {   
           if (parada == 0)
             {
@@ -2135,7 +2136,7 @@ void process_commands()
           if( (millis() - codenum) > 1000UL )
           { //Print Temp Reading and remaining time every 1 second while heating up/cooling down
             #ifdef TUMAKERPRINTER 
-      if ((current_temperature[0]>=40)||(current_temperature[1]>=40))
+      if (current_temperature[0]>=40)
       {   
           if (parada == 0)
             {

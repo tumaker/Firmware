@@ -375,6 +375,7 @@ void parar_contador()
     tumin=tumin_temp%60;
     tumin = tumin + minutos_prot;
     tusec = tusec + segundos_prot;
+    tuhora = tuhora + horas_prot;
     while(tusec >= 60)
     {
       tumin++;
@@ -1973,7 +1974,7 @@ void process_commands()
         break;
       }
       if (code_seen('S')){ setTargetHotend(code_value(), tmp_extruder);
-        if (target_temperature[0] == 0)
+        if ((target_temperature[0] == 0)&&(target_temperature[1]))
 	  {parar_contador();}
 	else
 	  {inicio_contador();}
@@ -2089,7 +2090,7 @@ void process_commands()
       if (code_seen('S')) {
       
         setTargetHotend(code_value(), tmp_extruder);
-        if (target_temperature[0] == 0)
+        if ((target_temperature[0] == 0)&&(target_temperature[1]))
 	  {parar_contador();}
 	else
 	  {inicio_contador();}
